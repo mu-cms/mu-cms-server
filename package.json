@@ -1,0 +1,32 @@
+{
+  "name": "mu-cms-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@es-git/mix": "^0.9.0",
+    "@es-git/node-fs-repo": "^0.9.0",
+    "@es-git/object-mixin": "^0.9.0",
+    "@es-git/path-to-object-mixin": "^0.9.0",
+    "@es-git/zlib-mixin": "^0.9.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "express-router-wrapper": "^2.1.0"
+  },
+  "devDependencies": {
+    "babel-runtime": "^6.26.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mu-cms/mu-cms-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mu-cms/mu-cms-server/issues"
+  },
+  "homepage": "https://github.com/mu-cms/mu-cms-server#readme"
+}
