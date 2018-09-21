@@ -1,10 +1,6 @@
 const express = require('express');
-const cors = require('cors');
 const router = require('./router');
-
 const app = express();
+const PORT = 8080;
 
-app.use(cors());
-app.use(router);
-
-app.listen(8080, () => console.log('app started'));
+app.use(router).listen(PORT, () => console.log(`app started on ${PORT}`));
