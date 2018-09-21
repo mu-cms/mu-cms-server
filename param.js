@@ -1,10 +1,10 @@
 const validator = require('validator');
 
-exports.tree = (req, res, next, tree) => {
-  if (validator.isHash(tree, 'sha1')) {
+exports.hash = (req, res, next, hash) => {
+  if (validator.isHash(hash, 'sha1')) {
     next()
   }
   else {
-    next(new Error(`${tree} has to be sha1`))
+    next(new Error(`${hash} has to be sha1`))
   }
 }
