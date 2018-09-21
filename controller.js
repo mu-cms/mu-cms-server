@@ -10,8 +10,17 @@ const Repo = mix(FsRepo)
   .with(objectMixin)
   .with(pathToObjectMixin);
 
-const repo = new Repo(path.join(__dirname, ".git"));
+const PATH = path.join(__dirname, '.git');
+const repo = new Repo(PATH);
 
-exports.loadByPath = async (req) => {
-  return repo.loadTextByPath(req.params.tree, req.params[0]);
+exports.loadByPath = async (req, res) => {
+  const { tree, path } = req.params;
+  const result = await repo.loadTextByPath(tree, path);
+
+  if (result) {
+    res.send(result);
+  }
+  else {
+    res.status(404).send(`Can't find ${tree}:${path}`);
+  }
 }
