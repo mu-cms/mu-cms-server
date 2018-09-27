@@ -1,9 +1,9 @@
-const mix = require('@es-git/mix').default;
-const FsRepo = require('@es-git/node-fs-repo').default;
-const zlibMixin = require('@es-git/zlib-mixin').default;
-const objectMixin = require('@es-git/object-mixin').default;
-const loadAsMixin = require('@es-git/load-as-mixin').default;
-const pathToObjectMixin = require('@es-git/path-to-object-mixin').default;
+const { default: mix } = require('@es-git/mix');
+const { default: FsRepo } = require('@es-git/node-fs-repo');
+const { default: zlibMixin } = require('@es-git/zlib-mixin');
+const { default: objectMixin } = require('@es-git/object-mixin');
+const { default: loadAsMixin } = require('@es-git/load-as-mixin');
+const { default: pathToObjectMixin } = require('@es-git/path-to-object-mixin');
 const { NEXT, PATH } = require('./const');
 
 const Repo = mix(FsRepo)
