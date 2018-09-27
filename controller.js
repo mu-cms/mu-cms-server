@@ -14,7 +14,7 @@ const Repo = mix(FsRepo)
 
 const repo = new Repo(PATH);
 
-exports.loadByTree = async (req, res) => {
+exports.loadPath = async (req, res) => {
   const { tree, path } = req.params;
   const result = await repo.loadTextByPath(tree, path);
 
@@ -26,7 +26,7 @@ exports.loadByTree = async (req, res) => {
   }
 }
 
-exports.loadByText = async (req, res) => {
+exports.loadBlob = async (req, res) => {
   const { blob } = req.params;
   const result = await repo.loadText(blob);
 
