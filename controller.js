@@ -12,10 +12,11 @@ const Repo = mix(FsRepo)
   .with(loadAsMixin)
   .with(pathToObjectMixin);
 
+const NEXT = 'next';
 const PATH = path.join(__dirname, '.git');
 const repo = new Repo(PATH);
 
-exports.loadByPath = async (req, res) => {
+exports.loadByTree = async (req, res) => {
   const { tree, path } = req.params;
   const result = await repo.loadTextByPath(tree, path);
 
@@ -23,11 +24,11 @@ exports.loadByPath = async (req, res) => {
     res.send(result);
   }
   else {
-    res.status(404).send(`Can't find ${tree}:${path}`);
+    return NEXT;
   }
 }
 
-exports.loadByHash = async (req, res) => {
+exports.loadByText = async (req, res) => {
   const { blob } = req.params;
   const result = await repo.loadText(blob);
 
@@ -35,6 +36,6 @@ exports.loadByHash = async (req, res) => {
     res.send(result);
   }
   else {
-    res.status(404).send(`Can't find ${blob}`);
+    return NEXT;
   }
 }

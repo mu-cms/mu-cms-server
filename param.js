@@ -1,10 +1,12 @@
 const validator = require('validator');
+const NEXT = 'next';
 
-exports.hash = (req, res, next, hash) => {
-  if (validator.isHash(hash, 'sha1')) {
-    next()
+exports.sha1 = async (req, res, next, hash) => {
+  if (!validator.isHash(hash, 'sha1')) {
+    res.status(400);
+    throw new Error(`${hash} has to be sha1`);
   }
   else {
-    next(new Error(`${hash} has to be sha1`))
+    return NEXT;
   }
 }

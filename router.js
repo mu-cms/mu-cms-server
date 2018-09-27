@@ -1,12 +1,10 @@
-const PromiseRouter = require('express-router-wrapper');
+const PromiseRouter = require('express-promise-router');
+const router = new PromiseRouter();
 const controller = require('./controller');
 const param = require('./param');
-const router = new PromiseRouter();
 
-router.param('tree', param.hash);
-router.param('hash', param.hash);
+router.param('blob', param.sha1);
+router.get('/:blob', controller.loadByText);
+router.get('/:tree/:path([^$]+)', controller.loadByTree);
 
-router.get('/:blob', controller.loadByHash);
-router.get('/:tree/:path([^$]+)', controller.loadByPath);
-
-module.exports = router.getOriginal();
+module.exports = router;
