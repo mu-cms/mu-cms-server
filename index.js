@@ -14,6 +14,6 @@ const Repo = mix(FsRepo)
   .with(pathToObjectMixin);
 
 express()
-  .use(require('./router')(new Repo(PATH)))
+  .use(require('mu-cms-middleware-git')(new Repo(PATH)))
   .use((req, res) => res.status(404).send(`unable to locate that for you`))
   .listen(PORT, () => console.log(`app started on ${PORT}`));
