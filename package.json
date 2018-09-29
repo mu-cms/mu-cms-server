@@ -1,5 +1,5 @@
 {
-  "name": "mu-cms-server",
+  "name": "@mu-cms/mu-express",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -21,12 +21,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mu-cms/mu-cms-server.git"
+    "url": "git+https://github.com/mu-cms/mu-express.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mu-cms/mu-cms-server/issues"
+    "url": "https://github.com/mu-cms/mu-express/issues"
   },
-  "homepage": "https://github.com/mu-cms/mu-cms-server#readme"
+  "homepage": "https://github.com/mu-cms/mu-express#readme"
 }
