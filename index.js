@@ -18,7 +18,9 @@ express()
   .listen(PORT, async () => {
     if (URL) {
       console.log(`fetching ${REFSPEC || 'default refspec'} from ${URL}`)
-      await repo.fetch(URL, REFSPEC);
+      await repo.fetch(URL, REFSPEC, {
+        progress: (message) => console.log(`-: ${message}`)
+      });
     }
     console.log(`app started on ${PORT}`);
   });
