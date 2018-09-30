@@ -21,13 +21,14 @@
     "babel-runtime": "^6.26.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./index"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mu-cms/mu-express.git"
   },
-  "author": "",
+  "author": "Mikael Karon <mikael@karon.se>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mu-cms/mu-express/issues"
