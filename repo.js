@@ -6,14 +6,19 @@ const { default: zlibMixin } = require('@es-git/zlib-mixin');
 const { default: fetchMixin } = require('@es-git/fetch-mixin');
 const { default: objectMixin } = require('@es-git/object-mixin');
 const { default: loadAsMixin } = require('@es-git/load-as-mixin');
+const { default: readCombinerMixin } = require('@es-git/read-combiner-mixin');
+const { default: cacheObjectsMixin } = require('@es-git/cache-objects-mixin');
 
 exports.FsRepo = mix(FsRepo)
   .with(zlibMixin)
   .with(fetchMixin, fetch)
   .with(objectMixin)
-  .with(loadAsMixin);
+  .with(loadAsMixin)
+  .with(readCombinerMixin);
 
 exports.MemRepo = mix(MemRepo)
   .with(fetchMixin, fetch)
   .with(objectMixin)
-  .with(loadAsMixin);
+  .with(loadAsMixin)
+  .with(readCombinerMixin)
+  .with(cacheObjectsMixin);
