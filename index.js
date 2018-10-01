@@ -1,12 +1,14 @@
+require('dotenv').config();
+
 const express = require('express');
 const git = require('@mu-cms/express-es-git');
 const { FsRepo, MemRepo } = require('./repo');
-const { PORT, PATH, URL, REFSPEC } = require('./const');
+const { PORT, GIT_PATH, GIT_URL, GIT_REFSPEC } = process.env;
 
 let repo;
-if (PATH) {
-  console.log(`using fs repo at ${PATH}`);
-  repo = new FsRepo(PATH);
+if (GIT_PATH) {
+  console.log(`using fs repo at ${GIT_PATH}`);
+  repo = new FsRepo(GIT_PATH);
 }
 else {
   console.log('using mem repo');
@@ -16,10 +18,10 @@ else {
 express()
   .use(git(repo))
   .listen(PORT, async () => {
-    if (URL) {
-      console.log(`fetching ${REFSPEC || 'default refspec'} from ${URL}`)
-      await repo.fetch(URL, REFSPEC, {
-        progress: (message) => console.log(`-: ${message}`)
+    if (GIT_URL) {
+      console.log(`fetching ${GIT_REFSPEC || 'default'} from ${GIT_URL}`);
+      await repo.fetch(GIT_URL, GIT_REFSPEC, {
+        progress: message => console.log(message)
       });
     }
     console.log(`app started on ${PORT}`);
