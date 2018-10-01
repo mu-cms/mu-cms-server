@@ -13,7 +13,7 @@
     "@es-git/object-mixin": "^0.9.0",
     "@es-git/read-combiner-mixin": "^0.9.0",
     "@es-git/zlib-mixin": "^0.9.0",
-    "@mu-cms/express-es-git": "^0.1.3",
+    "@mu-cms/express-es-git": "^0.1.4",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "node-fetch": "^2.2.0"
