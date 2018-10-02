@@ -27,10 +27,10 @@ curl -X POST http://127.0.0.1:8080/refs -d 'refs=refs/heads/master:refs/remotes/
 ### Example
 
 ```javascript
-const { PORT } = process.env;
+const { PORT = 8080 } = process.env;
 const express = require('express');
 const git = require('@mu-cms/express-es-git');
-const api = require('./api')(`http://localhost:${PORT}`);
+const api = require('@mu-cms/express-es-git/api')(`http://localhost:${PORT}`);
 const { MemRepo } = require('./repo');
 
 express()
