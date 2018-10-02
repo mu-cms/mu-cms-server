@@ -8,11 +8,11 @@ const { FsRepo, MemRepo } = require('./repo');
 
 let repo;
 if (GIT_PATH) {
-  console.log(`using fs repo at ${GIT_PATH}`);
+  console.log(`Using FS repo at ${GIT_PATH}`);
   repo = new FsRepo(GIT_PATH);
 }
 else {
-  console.log('using mem repo');
+  console.log('Using MEM repo');
   repo = new MemRepo();
 }
 
@@ -26,5 +26,5 @@ express()
     if (GIT_REFS) {
       await api.refs(...GIT_REFS.split(','));
     }
-    console.log(`app started on ${PORT}`);
+    console.log(`App started on port ${PORT}`);
   });
