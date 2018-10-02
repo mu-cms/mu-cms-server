@@ -31,7 +31,7 @@ const { PORT = 8080 } = process.env;
 const express = require('express');
 const git = require('@mu-cms/express-es-git');
 const api = require('@mu-cms/express-es-git/api')(`http://localhost:${PORT}`);
-const { MemRepo } = require('./repo');
+const { MemRepo } = require('@mu-cms/mu-express/repo');
 
 express()
   .use(express.urlencoded({ extended: true }))
@@ -39,6 +39,6 @@ express()
   .listen(PORT, async () => {
     await api.fetch('https://github.com/mu-cms/express-es-git.git', 'refs/heads/*:refs/remotes/express/*');
     await api.refs('refs/head/master:refs/remotes/express/master');
-    console.log(`app started on ${PORT}`);
+    console.log(`app started on port ${PORT}`);
   });
 ```
