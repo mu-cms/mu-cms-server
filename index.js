@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { PORT, GIT_PATH, GIT_FETCH, GIT_SPECS = '', GIT_REFS } = process.env;
+const { PORT = 8080, GIT_PATH, GIT_FETCH, GIT_SPECS = '', GIT_REFS } = process.env;
 const express = require('express');
 const git = require('@mu-cms/express-es-git');
 const api = require('@mu-cms/express-es-git/api')(`http://localhost:${PORT}`);
